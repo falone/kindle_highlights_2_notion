@@ -1,4 +1,4 @@
-# Kindle Highlites 2 Notion Bot 
+# Kindle Highlights 2 Notion Bot 
 
 This Telegram bot lets you upload Kindle highlights (APA-style HTML) and automatically imports them into Notion — with formatting, cover image selection, genre tagging, and more.
 
