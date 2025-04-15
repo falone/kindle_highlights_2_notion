@@ -15,7 +15,6 @@ I am not a professional programmer, but a hobbyist who writes code with ChatGPT 
 - Detects title, author, sections, pages, highlight color
 - Automatically creates or updates a Notion book page
 - Adds Table of Contents with anchor links
-- Lets you choose a genre, cover image, and reading status
 - Emoji-based page icons based on genre
 - Optional manual cover image upload
 - Syncs highlights with dates and metadata
