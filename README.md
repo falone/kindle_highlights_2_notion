@@ -85,7 +85,11 @@ Use it's Token as TELEGRAM_BOT_TOKEN in your .env or stack.env.
 ```bash
 cp stack.env.example stack.env
 ```
-2. Build and run the bot:
+2. Enter  your credentials
+```bash
+nano stack.env
+```
+3. Build and run the bot:
 ```bash
 docker compose up --build -d
 ```
@@ -131,7 +135,10 @@ Don't forget to create a file named .env (see .env.example) with your credential
 4. Be sure to select Citation style - APA
 5. Send the resulting HTML file to your bot
 6. If necessary, edit the Title and Author, add a Cover page
-   Enjoy!
+
+Enjoy!
+
+By default after sending highlights the bot will set the status to "Finished" and the "End of reading" date will be set on the day you uploaded the highlights
 
 ---
 ## Telegram bot demo
