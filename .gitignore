@@ -9,7 +9,7 @@ __pycache__/
 .env
 *.env
 stack.env
-.env.*
+
 
 # Jupyter
 .ipynb_checkpoints
