@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Kindle Highlights 2 Notion Bot banner" width="400"/>
+  <img src="assets/new.png" alt="Kindle Highlights 2 Notion Bot banner" width="400"/>
 </p>
 
 
