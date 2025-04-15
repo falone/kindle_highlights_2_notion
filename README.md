@@ -18,6 +18,18 @@ I am not a professional programmer, but a hobbyist who writes code with ChatGPT 
 - Emoji-based page icons based on genre
 - Optional manual cover image upload
 - Syncs highlights with dates and metadata
+---
+# How to use the bot:
+1. Install the official Kindle app on your phone/tablet
+2. Download the book from which you want to export highlights
+3. Click on Highlights - Share
+4. Be sure to select Citation style - APA
+5. Send the resulting HTML file to your bot
+6. If necessary, edit the Title and Author, add a Cover page
+
+Enjoy!
+
+By default after sending highlights the bot will set the status to "Finished" and the "End of reading" date will be set on the day you uploaded the highlights
 
 ---
 ## Preparation:
@@ -125,19 +137,6 @@ python bot.py
 
 ---
 Don't forget to create a file named .env (see .env.example) with your credentials
-
----
-# How to use the bot:
-1. Install the official Kindle app on your phone/tablet
-2. Download the book from which you want to export highlights
-3. Click on Highlights - Share
-4. Be sure to select Citation style - APA
-5. Send the resulting HTML file to your bot
-6. If necessary, edit the Title and Author, add a Cover page
-
-Enjoy!
-
-By default after sending highlights the bot will set the status to "Finished" and the "End of reading" date will be set on the day you uploaded the highlights
 
 ---
 ## Telegram bot demo
