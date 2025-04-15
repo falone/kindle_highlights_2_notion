@@ -134,6 +134,10 @@ Don't forget to create a file named .env (see .env.example) with your credential
    Enjoy!
 
 ---
+## Telegram bot demo
+![Demo](assets/demo.gif)
+
+## Notion Screenshots
 <details>
 <summary><b>📸 Example Output</b></summary>
 <img src="assets/preview3.png" width="600"/>
@@ -141,6 +145,7 @@ Don't forget to create a file named .env (see .env.example) with your credential
 <img src="assets/preview1.png" width="600"/>
 <img src="assets/preview2.png" width="600"/>
 </details>
+
 ---
 ## 💖 Support
 
