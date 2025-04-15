@@ -2,8 +2,7 @@
   <img src="assets/new.png" alt="Kindle Highlights 2 Notion Bot banner" width="400"/>
 </p>
 
-
-# Kindle Highlights 2 Notion Bot 
+# Kindle Highlights 2 Notion Bot ![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2Ffalone%2Fkindle_highlights_2_notion&label=Hits&icon=github&color=%23198754)
 
 This Telegram bot lets you upload Kindle highlights (APA-style HTML) and automatically imports them into Notion — with formatting, cover image selection, genre tagging, and more.
 
