@@ -24,7 +24,7 @@ I am not a professional programmer, but a hobbyist who writes code with ChatGPT 
 ## Preparation:
 ### 1. Create a notion database with the required fields
 
-|Propety name | Property type|
+|Property name | Property type|
 |---------------|----------------|
 |Title | Text|
 |Author | Text|
