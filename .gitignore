@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg-info/
+.env
+*.env
+stack.env
+.env.*
+
+# Jupyter
+.ipynb_checkpoints
+
+# VSCode / PyCharm
+.vscode/
+.idea/
+
+# MacOS / Windows
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
+docker-compose.override.yml
+*.pid
+
+# Byte-compiled / cache
+*.sqlite3
+*.db
+
+# Env folders
+venv/
+env/
+.venv/
+.envrc
+test_venv/
+.test_venv/

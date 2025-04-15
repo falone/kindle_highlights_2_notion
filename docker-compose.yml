@@ -1,0 +1,10 @@
+services:
+  kindlebot:
+    container_name: kindle2notion_bot
+    build:
+      context: .
+    restart: unless-stopped
+    env_file:
+      - stack.env
+    volumes:
+      - ./temp:/app/temp
