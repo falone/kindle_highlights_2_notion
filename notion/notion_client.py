@@ -1,5 +1,5 @@
 from notion_client import Client
-from config import NOTION_API_KEY, NOTION_DATABASE_ID
+from dotenv import load_dotenv
 from parser.html_parser import parse_html
 from notion.formatter import build_notion_blocks
 from datetime import datetime
@@ -9,6 +9,10 @@ import requests
 import urllib.parse
 import asyncio
 import os
+
+load_dotenv()
+NOTION_API_KEY = os.getenv("NOTION_API_KEY")
+NOTION_DATABASE_ID = os.getenv("NOTION_DATABASE_ID")
 
 notion = Client(auth=NOTION_API_KEY)
 
