@@ -15,6 +15,8 @@ TEMP_DIR = "./temp"
 if os.path.exists(TEMP_DIR):
     for filename in os.listdir(TEMP_DIR):
         file_path = os.path.join(TEMP_DIR, filename)
+        if filename == ".gitkeep":
+            continue  # Не чіпати gitkeep
         try:
             if os.path.isfile(file_path) or os.path.islink(file_path):
                 os.unlink(file_path)
