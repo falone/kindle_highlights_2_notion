@@ -139,7 +139,11 @@ async def continue_processing_after_confirmation(user_id, update, context):
             print(f"⚠️ Failed to delete block {child['id']}: {e}")
             continue
 
-    # Structured sections and blocks
+#   print("--- Highlights before build_notion_blocks ---")
+#   print(parsed["highlights"])
+#   print("--- End of highlights ---")
+
+    # Getting structured sections and blocks
     sections, content_blocks = build_notion_blocks(parsed)
 
     # Insert placeholder TOC
@@ -216,7 +220,6 @@ async def continue_processing_after_confirmation(user_id, update, context):
             [InlineKeyboardButton("🔍 Search cover in Google", url=search_url)]
         ])
     )
-
     # 🧹 Delete temporary file
     try:
         file_path = data.get("file_path")
