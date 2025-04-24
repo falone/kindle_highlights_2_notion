@@ -10,6 +10,22 @@ This Telegram bot lets you upload Kindle highlights (APA-style HTML) and automat
 ## Disclaimer
 I am not a professional programmer, but a hobbyist who writes code with ChatGPT and Gemini for my own needs. Therefore, this code may be funny, silly, or incorrect - I absolutely understand that. If you have any tips on how to improve it, I will be grateful for the hints, but I don't promise that I will be able to implement them.
 
+---
+### 📚 Table of Contents
+
+- [Features](#-features)
+- [How to use the bot](#-how-to-use-the-bot)
+- [Preparation](#-preparation)
+  - [1. Create a notion database with the required fields](#1-create-a-notion-database-with-the-required-fields)
+  - [2. Create a connection and connect it to your database](#2-create-a-connection-and-connect-it-to-your-database)
+  - [3. Create telegram bot via @BotFather](#3-create-telegram-bot-via-botfather)
+  - [4. Set up Imgur and get the necessary tokens to upload pictures](#4-set-up-imgur-and-get-the-necessary-tokens-to-upload-pictures)
+- [Quick Start](#-quick-start)
+  - [Option 1: Run with Docker](#-option-1-run-with-docker)
+  - [Option 2: Run manually (Python)](#-option-2-run-manually-python)
+- [Telegram bot demo](#-telegram-bot-demo)
+- [Notion Screenshots](#-notion-screenshots)
+- [Support](#-support)
 
 ---
 
@@ -22,8 +38,9 @@ I am not a professional programmer, but a hobbyist who writes code with ChatGPT 
 - Emoji-based page icons based on genre
 - Optional manual cover image upload
 - Syncs highlights with dates and metadata
+- UPD: Now covers are loaded to Imgur. See the "Preparation" section for necessary instructions
 ---
-# How to use the bot:
+## 🧰 How to use the bot:
 1. Install the official Kindle app on your phone/tablet
 2. Download the book from which you want to export highlights
 3. Click on Highlights - Share
@@ -36,8 +53,8 @@ Enjoy!
 By default after sending highlights the bot will set the status to "Finished" and the "End of reading" date will be set on the day you uploaded the highlights
 
 ---
-## Preparation:
-### 1. Create a notion database with the required fields
+# ⭐ Preparation:
+## 1. Create a notion database with the required fields
 
 |Property name | Property type|
 |---------------|----------------|
@@ -47,14 +64,13 @@ By default after sending highlights the bot will set the status to "Finished" an
 |End of reading | Date|
 |Year | Text|
 |Genre | Select|
-|Cover | Files & media|
 
 Do not change the name of the properties or if you want to - then edit them in notion_client.py
 
-### 2. Create a connection and connect it to your database
+## 2. Create a connection and connect it to your database
 To allow the bot to access your Notion workspace and database, follow these steps:
 
-1️⃣ Create a New Integration in Notion
+### 1️⃣ Create a New Integration in Notion
 Go to https://www.notion.so/profile/integrations
 - Click +New integration
 - Give your integration a name (e.g. Kindle2Notion Bot)
@@ -66,14 +82,14 @@ Go to https://www.notion.so/profile/integrations
 - Click Submit
 - Copy the Internal Integration Token — you’ll use this as NOTION_API_KEY in your .env or stack.env
 
-2️⃣ Share Your Notion Database with the Integration
+### 2️⃣ Share Your Notion Database with the Integration
 - Navigate to the database you want the integration to access.
 - Click on the ••• (More options) button at the top-right corner of the page (not the table!)
 - Select Connections from the dropdown menu.
 - In the pop-up, search for the name of your integration.
 - Select your integration and click Confirm to grant it access to the database.
 
-3️⃣ Find Your Notion Database ID
+### 3️⃣ Find Your Notion Database ID
 - Open your Notion database in a browser
 - Look at the URL — it should look like:
 ```text
@@ -87,14 +103,48 @@ abcd1234ef56789012345678abcdef12
 is your database ID
 Use this as NOTION_DATABASE_ID in your .env or stack.env
 
-### 3. Create telegram bot via @BotFather
+## 3. Create telegram bot via @BotFather
 Use it's Token as TELEGRAM_BOT_TOKEN in your .env or stack.env.
 
+## 4. Set up Imgur and get the necessary tokens to upload pictures
+To allow the bot to upload book cover images to Imgur (for reliable image hosting), you'll need to set up an Imgur application and configure your environment with the required tokens.
+
+### 1️⃣ Register an Imgur Application
+1. Visit [Imgur API registration](https://api.imgur.com/oauth2/addclient). Login with Google if necessary.
+2. Fill out the form:
+- **Authorization type:** ```OAuth 2 authorization without a callback URL```
+- **Application name:** e.g., ```Kindle Highlights to Notion```
+- **Email:** your valid email
+- **Description:** anything (e.g., ```Bot that uploads Kindle highlights to Notion with cover support```)
+3. Submit the form.
+4. You’ll receive two important credentials:
+- Client ID - you’ll use this as IMGUR_CLIENT_ID in your .env or stack.env
+- Client Secret - you’ll use this as IMGUR_CLIENT_SECRET in your .env or stack.env
+
+### 2️⃣ Authorize Your App
+1. Open the following URL in your browser, replacing ```<CLIENT_ID>``` with your actual Client ID:
+   ```bash
+   https://api.imgur.com/oauth2/authorize?client_id=<CLIENT_ID>&response_type=token
+   ```
+2. Log in to your Imgur account and **authorize the app**.
+3. You’ll be redirected to a URL that looks like:
+   ```bash
+   https://imgur.com/#access_token=...&expires_in=...&token_type=...&refresh_token=...&account_username=...&account_id=...
+   ```
+4. Copy and save the following values from the URL:
+- access_token - you’ll use this as IMGUR_ACCESS_TOKEN in your .env or stack.env
+- refresh_token - you’ll use this as IMGUR_REFRESH_TOKEN in your .env or stack.env
+- account_username - you’ll use this as ACCOUNT_USERNAME in your .env or stack.env
+  
+### ❓ What the Bot Does with These Tokens
+It uploads book cover images directly to your Imgur account.
+If the access token expires, the bot will automatically refresh it using the refresh token.
+Uploaded images are hosted in your Imgur profile under ```https://imgur.com/user/<your_account_username>``` and used as external image URLs in Notion.
 
 ---
-## 🚀 Quick Start
+# 🚀 Quick Start
 
-### 🐳 Option 1: Run with Docker
+## 🐳 Option 1: Run with Docker
 
 1. Copy the example environment file:
 ```bash
@@ -109,7 +159,7 @@ nano stack.env
 docker compose up --build -d
 ```
 
-### 🐍 Option 2: Run manually (Python)
+## 🐍 Option 2: Run manually (Python)
 1. Create and activate a virtual environment:
 ```bash
 python -m venv venv
@@ -138,15 +188,19 @@ python bot.py
 |TELEGRAM_BOT_TOKEN | Your Telegram bot token|
 |NOTION_API_KEY | Notion integration token|
 |NOTION_DATABASE_ID | Notion database ID|
-
+|IMGUR_ACCESS_TOKEN | Imgur access token|
+|IMGUR_REFRESH_TOKEN | Imgur refresh token|
+|IMGUR_CLIENT_ID | Imgur client id|
+|IMGUR_CLIENT_SECRET | Imgur client secret|
+|IMGUR_ACCOUNT_USERNAME | Imgur account username|
 ---
 Don't forget to create a file named .env (see .env.example) with your credentials
 
 ---
-## Telegram bot demo
+## 📱 Telegram bot demo
 ![Demo](assets/demo.gif)
 
-## Notion Screenshots
+## 🖼 Notion Screenshots
 <details>
 <summary><b>📸 Example Output</b></summary>
 <img src="assets/preview3.png" width="600"/>
