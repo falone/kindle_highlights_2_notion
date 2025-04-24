@@ -82,7 +82,8 @@ def find_or_create_page(book_title, author):
     }
 
     if genre:
-        props["Genre"] = {"select": {"name": genre}}
+        clean_genre = genre.split(",")[0].strip()
+        props["Genre"] = {"select": {"name": clean_genre}}
     if extra and extra.get("published_year"):
         props["Year"] = {"rich_text": [{"text": {"content": extra["published_year"]}}]}
 
