@@ -1,6 +1,6 @@
 [project]
 name = "k2n-highlights"
-version = "0.1.7"
+version = "0.1.9"
 description = "Telegram bot to sync Kindle highlights to Notion"
 authors = [{ name = "Anton Pokaliukhin" }]
 readme = "README.md"
