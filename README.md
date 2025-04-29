@@ -153,7 +153,7 @@ Uploaded images are hosted in your Imgur profile under ```https://imgur.com/user
 - Open Command Prompt (`Win + R`, type `cmd`)
 
     
-    cd /d D:\Projects\k2n_project
+```cd /d D:\Projects\k2n_project```
     
 
 ### 2. Create and Activate a Virtual Environment
