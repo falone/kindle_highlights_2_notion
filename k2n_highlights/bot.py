@@ -5,10 +5,10 @@ import shutil
 import requests
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes, CallbackQueryHandler
-from notion_client import Client
-from notion.notion_client import process_html_file
-from notion.user_state import AwaitingField, user_states, user_data_overrides
-from utils.imgur import upload_to_imgur
+from .notion.notion_client import Client
+from .notion.notion_client import process_html_file
+from .notion.user_state import AwaitingField, user_states, user_data_overrides
+from .utils.imgur import upload_to_imgur
 
 TEMP_DIR = "./temp"
 
@@ -38,7 +38,7 @@ async def handle_file(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Processing file...")
 
     try:
-        from parser.html_parser import parse_html
+        from .parser.html_parser import parse_html
         parsed = parse_html(filename)
         author = parsed["author"]
         title = parsed["title"]
@@ -98,7 +98,7 @@ async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         current_title = data["parsed"]["title"]
         await query.edit_message_text(f"✏️ Enter the correct book title:\n\nCurrent value: <code>{current_title}</code>", parse_mode="HTML")
     elif query.data == "title_ok":
-        from notion.notion_client import continue_processing_after_confirmation
+        from .notion.notion_client import continue_processing_after_confirmation
         await query.edit_message_text("🔄 Adding the book to Notion...")
         await continue_processing_after_confirmation(user_id, update, context)
 
@@ -124,7 +124,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_data_overrides[user_id]["parsed"]["title"] = update.message.text
         user_states[user_id] = AwaitingField.NONE
         await update.message.reply_text("🔄 Adding the book to Notion...")
-        from notion.notion_client import continue_processing_after_confirmation
+        from .notion.notion_client import continue_processing_after_confirmation
         await continue_processing_after_confirmation(user_id, update, context)
     else:
         await update.message.reply_text("🤖 Please send a Kindle HTML file or a cover image.")
@@ -167,8 +167,26 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def main():
     from dotenv import load_dotenv
+
     load_dotenv()
+
     token = os.getenv("TELEGRAM_BOT_TOKEN")
+    notion_token = os.getenv("NOTION_API_KEY")
+    notion_database_id = os.getenv("NOTION_DATABASE_ID")
+
+    missing = []
+    if not token:
+        missing.append("TELEGRAM_BOT_TOKEN")
+    if not notion_token:
+        missing.append("NOTION_API_KEY")
+    if not notion_database_id:
+        missing.append("NOTION_DATABASE_ID")
+
+    if missing:
+        raise ValueError(f"Missing environment variables: {', '.join(missing)}. Please create and configure your .env file.")
+
+    logging.info("Starting k2n-highlights bot...")
+
     app = ApplicationBuilder().token(token).build()
 
     app.add_handler(MessageHandler(filters.Document.ALL, handle_file))
@@ -177,6 +195,7 @@ def main():
     app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
 
     app.run_polling()
+
 
 if __name__ == "__main__":
     main()

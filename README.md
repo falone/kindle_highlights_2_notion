@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/new.png" alt="Kindle Highlights 2 Notion Bot banner" width="400"/>
+  <img src="https://raw.githubusercontent.com/falone/kindle_highlights_2_notion/main/assets/new.png" alt="Kindle Highlights 2 Notion Bot banner" width="400"/>
 </p>
 
 # Kindle Highlights 2 Notion Bot ![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2Ffalone%2Fkindle_highlights_2_notion&label=Hits&icon=github&color=%23198754)
@@ -198,15 +198,15 @@ Don't forget to create a file named .env (see .env.example) with your credential
 
 ---
 ## 📱 Telegram bot demo
-![Demo](assets/demo.gif)
+![Demo](https://raw.githubusercontent.com/falone/kindle_highlights_2_notion/main/assets/demo.gif)
 
 ## 🖼 Notion Screenshots
 <details>
 <summary><b>📸 Example Output</b></summary>
-<img src="assets/preview3.png" width="600"/>
-<img src="assets/preview4.png" width="600"/>
-<img src="assets/preview1.png" width="600"/>
-<img src="assets/preview2.png" width="600"/>
+<img src="https://raw.githubusercontent.com/falone/kindle_highlights_2_notion/main/assets/preview3.png" width="600"/>
+<img src="https://raw.githubusercontent.com/falone/kindle_highlights_2_notion/main/assets/preview4.png" width="600"/>
+<img src="https://raw.githubusercontent.com/falone/kindle_highlights_2_notion/main/assets/preview1.png" width="600"/>
+<img src="https://raw.githubusercontent.com/falone/kindle_highlights_2_notion/main/assets/preview2.png" width="600"/>
 </details>
 
 ---
