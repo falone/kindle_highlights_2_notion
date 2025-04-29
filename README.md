@@ -24,7 +24,7 @@ I am not a professional programmer, but a hobbyist who writes code with ChatGPT 
   - [Windows](#-windows)
   - [Linux](#-linux)
   - [macOS](#-macos)
-- [For Developers (Advanced Users)](#-for-developers-advanced-users-)
+- [For Developers (Advanced Users)](#-for-developers-advanced-users)
 - [Telegram bot demo](#-telegram-bot-demo)
 - [Notion Screenshots](#-notion-screenshots)
 - [Support](#-support)
