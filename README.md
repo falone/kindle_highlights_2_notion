@@ -20,7 +20,7 @@ I am not a professional programmer, but a hobbyist who writes code with ChatGPT 
   - [2. Create a connection and connect it to your database](#2-create-a-connection-and-connect-it-to-your-database)
   - [3. Create telegram bot via @BotFather](#3-create-telegram-bot-via-botfather)
   - [4. Set up Imgur and get the necessary tokens to upload pictures](#4-set-up-imgur-and-get-the-necessary-tokens-to-upload-pictures)
-- [Quick Start](#-quick-start)
+- [Installation and Setup Instructions (for Beginners)](#-installation-and-setup-instructions-for-beginners)
   - [Option 1: Run with Docker](#-option-1-run-with-docker)
   - [Option 2: Run manually (Python)](#-option-2-run-manually-python)
 - [Telegram bot demo](#-telegram-bot-demo)
