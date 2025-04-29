@@ -301,50 +301,48 @@ Only then run the bot.
 ---
 
 # 🛠 For Developers (Advanced Users)
-
-If you want to run the bot directly from the source code instead of installing it:
-
-### 1. Clone the Repository
-
-    git clone https://github.com/falone/kindle_highlights_2_notion.git
+To run the bot directly from the source code:
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/falone/k2n_highlights.git
     cd k2n_highlights
-    
-### 2. Create and Activate a Virtual Environment
+    ```
 
-#### Windows:
+2. Create and activate a virtual environment:
 
-    python -m venv venv
-    venv\Scripts\activate
-    
-#### Linux / macOS:
-
+    ```bash
     python3 -m venv venv
     source venv/bin/activate
-    
-### 3. Install Dependencies
+    ```
 
+    *(or `python -m venv venv` ➔ `venv\Scripts\activate` on Windows)*
+
+3. Install dependencies:
+
+    ```bash
     pip install -r requirements.txt
-    
-### 4. Configure the `.env` File
+    ```
 
-    copy .env.example .env    # Windows
-    cp .env.example .env      # Linux/macOS
-    
-Edit `.env` and fill in your tokens.
+4. Configure the `.env` file:
 
-### 5. Run the Bot
+    ```bash
+    cp .env.example .env    # (or copy manually on Windows)
+    ```
 
+5. Run the bot:
+
+    ```bash
     python -m k2n_highlights
-    
-✅ Now the bot will start using the local source code.
+    ```
 
 ---
 
-# 📋 Notes for Developers
+✅ `.env` must be present.  
+✅ Pip dependencies must be installed.  
+✅ Working directory = project root.
 
-- Make sure `.env` is present in the working directory.
-- This method is intended for debugging and development.
-- For production use, prefer installing from PyPI.
+---
+
 
 🔐 Environment Variables (.env)
 |Variable | Description|
