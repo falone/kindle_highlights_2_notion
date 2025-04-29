@@ -12,6 +12,10 @@ from .utils.imgur import upload_to_imgur
 
 TEMP_DIR = "./temp"
 
+# Ensure temp directory exists
+if not os.path.exists(TEMP_DIR):
+    os.makedirs(TEMP_DIR)
+    
 if os.path.exists(TEMP_DIR):
     for filename in os.listdir(TEMP_DIR):
         file_path = os.path.join(TEMP_DIR, filename)
