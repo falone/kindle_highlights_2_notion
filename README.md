@@ -142,45 +142,251 @@ If the access token expires, the bot will automatically refresh it using the ref
 Uploaded images are hosted in your Imgur profile under ```https://imgur.com/user/<your_account_username>``` and used as external image URLs in Notion.
 
 ---
-# 🚀 Quick Start
+# 📦 Installation and Setup Instructions (for Beginners)
 
-## 🐳 Option 1: Run with Docker
+## 🪟 Windows
 
-1. Copy the example environment file:
-```bash
-cp stack.env.example stack.env
-```
-2. Enter  your credentials
-```bash
-nano stack.env
-```
-3. Build and run the bot:
-```bash
-docker compose up --build -d
-```
+### 1. Create a Project Folder
 
-## 🐍 Option 2: Run manually (Python)
-1. Create and activate a virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate        # On Linux/macOS
-venv\Scripts\activate           # On Windows
-```
+- Open File Explorer (`Win + E`)
+- Create a folder, e.g., `D:\Projects\k2n_project`
+- Open Command Prompt (`Win + R`, type `cmd`)
 
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+    ```bash
+    cd /d D:\Projects\k2n_project
+    ```
 
-3. Copy environment variables:
-```bash
-cp .env.example .env
-```
+### 2. Create and Activate a Virtual Environment
 
-4. Run the bot:
-```bash
-python bot.py
-```
+    python -m venv venv
+    venv\Scripts\activate
+    
+✅ `(venv)` should appear at the beginning of the command line.
+
+### 3. Install the Bot
+
+    pip install k2n-highlights
+    
+### 4. Create and Configure the `.env` File
+
+    ```bash
+    copy nul .env
+    ```
+
+- Open `.env` in Notepad.
+- Fill it based on `.env.example`:
+
+    ```env
+    TELEGRAM_BOT_TOKEN=your_telegram_token
+    NOTION_API_KEY=your_notion_api_key
+    NOTION_DATABASE_ID=your_notion_database_id
+
+    IMGUR_ACCESS_TOKEN=
+    IMGUR_REFRESH_TOKEN=
+    IMGUR_CLIENT_ID=
+    IMGUR_CLIENT_SECRET=
+    IMGUR_ACCOUNT_USERNAME=
+    ```
+
+### 5. Run the Bot
+
+    ```bash
+    k2n-highlights
+    ```
+or
+    ```bash
+    python -m k2n_highlights
+    ```
+
+---
+
+## 🐧 Linux
+
+### 1. Create a Project Folder
+
+    ```bash
+    cd ~/Documents
+    mkdir k2n_project
+    cd k2n_project
+    ```
+
+### 2. Create and Activate a Virtual Environment
+
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+✅ `(venv)` should appear.
+
+### 3. Install the Bot
+
+    ```bash
+    pip install k2n-highlights
+    ```
+
+### 4. Create and Configure the `.env` File
+
+    ```bash
+    touch .env
+    nano .env
+    ```
+
+Fill the `.env` file like this:
+
+    ```env
+    TELEGRAM_BOT_TOKEN=your_telegram_token
+    NOTION_API_KEY=your_notion_api_key
+    NOTION_DATABASE_ID=your_notion_database_id
+
+    IMGUR_ACCESS_TOKEN=
+    IMGUR_REFRESH_TOKEN=
+    IMGUR_CLIENT_ID=
+    IMGUR_CLIENT_SECRET=
+    IMGUR_ACCOUNT_USERNAME=
+    ```
+
+Save (`Ctrl + O`, `Enter`) and exit (`Ctrl + X`).
+
+### 5. Run the Bot
+
+    ```bash
+    k2n-highlights
+    ```
+or
+    ```bash
+    python3 -m k2n_highlights
+    ```
+
+---
+
+## 🍏 macOS
+
+### 1. Create a Project Folder
+
+    ```bash
+    cd ~/Documents
+    mkdir k2n_project
+    cd k2n_project
+    ```
+
+### 2. Create and Activate a Virtual Environment
+
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+✅ `(venv)` should appear.
+
+### 3. Install the Bot
+
+    ```bash
+    pip install k2n-highlights
+    ```
+
+### 4. Create and Configure the `.env` File
+
+    ```bash
+    touch .env
+    nano .env
+    ```
+
+Fill the `.env` file:
+
+    ```env
+    TELEGRAM_BOT_TOKEN=your_telegram_token
+    NOTION_API_KEY=your_notion_api_key
+    NOTION_DATABASE_ID=your_notion_database_id
+
+    IMGUR_ACCESS_TOKEN=
+    IMGUR_REFRESH_TOKEN=
+    IMGUR_CLIENT_ID=
+    IMGUR_CLIENT_SECRET=
+    IMGUR_ACCOUNT_USERNAME=
+    ```
+
+Save and exit.
+
+### 5. Run the Bot
+
+    ```bash
+    k2n-highlights
+    ```
+or
+    ```bash
+    python3 -m k2n_highlights
+    ```
+
+---
+
+# ⚡ Important: Reactivating the Environment After Restart
+
+Each time you open a new terminal or command prompt window:
+1. Navigate to your project folder.
+2. Activate the virtual environment again.
+
+Only then run the bot.
+
+---
+
+# 🛠 For Developers (Advanced Users)
+
+If you want to run the bot directly from the source code instead of installing it:
+
+### 1. Clone the Repository
+
+    ```bash
+    git clone https://github.com/falone/k2n_highlights.git
+    cd k2n_highlights
+    ```
+
+### 2. Create and Activate a Virtual Environment
+
+#### Windows:
+
+    ```bash
+    python -m venv venv
+    venv\Scripts\activate
+    ```
+
+#### Linux / macOS:
+
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+### 3. Install Dependencies
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### 4. Configure the `.env` File
+
+    ```bash
+    copy .env.example .env    # Windows
+    cp .env.example .env      # Linux/macOS
+    ```
+
+Edit `.env` and fill in your tokens.
+
+### 5. Run the Bot
+
+    ```bash
+    python -m k2n_highlights
+    ```
+
+✅ Now the bot will start using the local source code.
+
+---
+
+# 📋 Notes for Developers
+
+- Make sure `.env` is present in the working directory.
+- This method is intended for debugging and development.
+- For production use, prefer installing from PyPI.
 
 🔐 Environment Variables (.env)
 |Variable | Description|
