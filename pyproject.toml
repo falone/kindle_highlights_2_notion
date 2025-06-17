@@ -1,0 +1,36 @@
+[project]
+name = "k2n-highlights"
+version = "0.1.9"
+description = "Telegram bot to sync Kindle highlights to Notion"
+authors = [{ name = "Anton Pokaliukhin" }]
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "LICENSE" }
+dependencies = [
+    "python-telegram-bot==20.0",
+    "notion-client==2.3.0",
+    "requests==2.32.3",
+    "python-dotenv==1.1.0",
+    "beautifulsoup4==4.13.3",
+    "lxml==5.3.2",
+    "httpx==0.23.3",
+    "yarl==1.19.0",
+    "multidict==6.4.3",
+    "attrs==25.3.0"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/falone/kindle_highlights_2_notion"
+"Source" = "https://github.com/falone/kindle_highlights_2_notion"
+"Issues" = "https://github.com/falone/kindle_highlights_2_notion/issues"
+
+[project.scripts]
+k2n-highlights = "k2n_highlights.bot:main"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["k2n_highlights", "k2n_highlights.notion", "k2n_highlights.parser", "k2n_highlights.utils"]
+

@@ -1,7 +1,7 @@
 from notion_client import Client
 from dotenv import load_dotenv
-from parser.html_parser import parse_html
-from notion.formatter import build_notion_blocks
+from ..parser.html_parser import parse_html
+from .formatter import build_notion_blocks
 from datetime import datetime
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from .user_state import user_data_overrides
