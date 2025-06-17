@@ -3,6 +3,7 @@
 </p>
 
 # Kindle Highlights 2 Notion Bot ![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2Ffalone%2Fkindle_highlights_2_notion&label=Hits&icon=github&color=%23198754)
+<a href='https://ko-fi.com/V7V71DIZWQ' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi6.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 This Telegram bot lets you upload Kindle highlights (APA-style HTML) and automatically imports them into Notion — with formatting, cover image selection, genre tagging, and more.
 
@@ -82,7 +83,7 @@ Go to https://www.notion.so/profile/integrations
   ✅ Insert content
   ✅ Update content
 - Click Submit
-- Copy the Internal Integration Token — you’ll use this as NOTION_API_KEY in your .env or stack.env
+- Copy the Internal Integration Token — you’ll use this as NOTION_API_KEY in your .env
 
 ### 2️⃣ Share Your Notion Database with the Integration
 - Navigate to the database you want the integration to access.
@@ -103,10 +104,10 @@ The long string at the end (32 characters)
 abcd1234ef56789012345678abcdef12
 ```
 is your database ID
-Use this as NOTION_DATABASE_ID in your .env or stack.env
+Use this as NOTION_DATABASE_ID in your .env
 
 ## 3. Create telegram bot via @BotFather
-Use it's Token as TELEGRAM_BOT_TOKEN in your .env or stack.env.
+Use it's Token as TELEGRAM_BOT_TOKEN in your .env
 
 ## 4. Set up Imgur and get the necessary tokens to upload pictures
 To allow the bot to upload book cover images to Imgur (for reliable image hosting), you'll need to set up an Imgur application and configure your environment with the required tokens.
@@ -120,8 +121,8 @@ To allow the bot to upload book cover images to Imgur (for reliable image hostin
 - **Description:** anything (e.g., ```Bot that uploads Kindle highlights to Notion with cover support```)
 3. Submit the form.
 4. You’ll receive two important credentials:
-- Client ID - you’ll use this as IMGUR_CLIENT_ID in your .env or stack.env
-- Client Secret - you’ll use this as IMGUR_CLIENT_SECRET in your .env or stack.env
+- Client ID - you’ll use this as IMGUR_CLIENT_ID in your .env
+- Client Secret - you’ll use this as IMGUR_CLIENT_SECRET in your .env
 
 ### 2️⃣ Authorize Your App
 1. Open the following URL in your browser, replacing ```<CLIENT_ID>``` with your actual Client ID:
@@ -134,9 +135,9 @@ To allow the bot to upload book cover images to Imgur (for reliable image hostin
    https://imgur.com/#access_token=...&expires_in=...&token_type=...&refresh_token=...&account_username=...&account_id=...
    ```
 4. Copy and save the following values from the URL:
-- access_token - you’ll use this as IMGUR_ACCESS_TOKEN in your .env or stack.env
-- refresh_token - you’ll use this as IMGUR_REFRESH_TOKEN in your .env or stack.env
-- account_username - you’ll use this as ACCOUNT_USERNAME in your .env or stack.env
+- access_token - you’ll use this as IMGUR_ACCESS_TOKEN in your .env
+- refresh_token - you’ll use this as IMGUR_REFRESH_TOKEN in your .env
+- account_username - you’ll use this as ACCOUNT_USERNAME in your .env
   
 ### ❓ What the Bot Does with These Tokens
 It uploads book cover images directly to your Imgur account.
