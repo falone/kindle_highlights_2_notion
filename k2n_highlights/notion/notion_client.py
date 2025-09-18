@@ -1,7 +1,7 @@
 from notion_client import Client
-from config import NOTION_API_KEY, NOTION_DATABASE_ID
-from parser.html_parser import parse_html
-from notion.formatter import build_notion_blocks
+from dotenv import load_dotenv
+from ..parser.html_parser import parse_html
+from .formatter import build_notion_blocks
 from datetime import datetime
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from .user_state import user_data_overrides
@@ -9,6 +9,10 @@ import requests
 import urllib.parse
 import asyncio
 import os
+
+load_dotenv()
+NOTION_API_KEY = os.getenv("NOTION_API_KEY")
+NOTION_DATABASE_ID = os.getenv("NOTION_DATABASE_ID")
 
 notion = Client(auth=NOTION_API_KEY)
 
@@ -82,7 +86,8 @@ def find_or_create_page(book_title, author):
     }
 
     if genre:
-        props["Genre"] = {"select": {"name": genre}}
+        clean_genre = genre.split(",")[0].strip()
+        props["Genre"] = {"select": {"name": clean_genre}}
     if extra and extra.get("published_year"):
         props["Year"] = {"rich_text": [{"text": {"content": extra["published_year"]}}]}
 
@@ -139,7 +144,11 @@ async def continue_processing_after_confirmation(user_id, update, context):
             print(f"⚠️ Failed to delete block {child['id']}: {e}")
             continue
 
-    # Structured sections and blocks
+#   print("--- Highlights before build_notion_blocks ---")
+#   print(parsed["highlights"])
+#   print("--- End of highlights ---")
+
+    # Getting structured sections and blocks
     sections, content_blocks = build_notion_blocks(parsed)
 
     # Insert placeholder TOC
@@ -216,7 +225,6 @@ async def continue_processing_after_confirmation(user_id, update, context):
             [InlineKeyboardButton("🔍 Search cover in Google", url=search_url)]
         ])
     )
-
     # 🧹 Delete temporary file
     try:
         file_path = data.get("file_path")
